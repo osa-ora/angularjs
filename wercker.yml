@@ -49,7 +49,9 @@ build:
           rm ./httpd.conf
           echo "First :)"
           cp -R * /usr/local/apache2/htdocs/demo/
+          rm -rf WebContent
           echo "Second :)"
+          ls -l
           chown -R www-data:www-data /usr/local/apache2/htdocs/demo
           chmod -R ugo+rx /usr/local/apache2/htdocs/demo
           echo "Done :)"
