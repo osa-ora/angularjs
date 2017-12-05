@@ -43,8 +43,8 @@ build:
         code: |
           echo "Start building the app"
           ls -l
-          mkdirs /usr/local/apache2/htdocs/demo/
-          mkdirs /usr/local/apache2/conf/
+          mkdir -p /usr/local/apache2/htdocs/demo/
+          mkdir -p /usr/local/apache2/conf/
           cp * /usr/local/apache2/htdocs/demo/
           cp ./httpd.conf /usr/local/apache2/conf/httpd.conf
           chown -R www-data:www-data /usr/local/apache2/htdocs/demo
