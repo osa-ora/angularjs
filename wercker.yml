@@ -31,10 +31,6 @@ dev:
         reload: true
 #
 build:
-  box: 
-     id: httpd:2.4
-     ports: 
-         "8080"
   # The steps that will be executed on build
   # Steps make up the actions in your pipeline
   # Read more about steps on our dev center:
