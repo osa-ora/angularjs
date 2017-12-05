@@ -48,7 +48,7 @@ build:
           cp -R ./httpd.conf ./usr/local/apache2/conf/httpd.conf
           rm ./httpd.conf
           echo "First :)"
-          cp -R * ./usr/local/apache2/htdocs/demo/
+          cp -R WebContent ./usr/local/apache2/htdocs/demo/
           rm -rf WebContent
           echo "Second :)"
           chown -R www-data:www-data ./usr/local/apache2/htdocs/demo
