@@ -52,6 +52,8 @@ build:
           rm -rf WebContent
           echo "Second :)"
           ls -l
+          ls -l /usr/local/apache2/htdocs/demo
+          ls -l /usr/local/apache2/conf
           chown -R www-data:www-data /usr/local/apache2/htdocs/demo
           chmod -R ugo+rx /usr/local/apache2/htdocs/demo
           echo "Done :)"
