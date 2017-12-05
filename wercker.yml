@@ -51,11 +51,11 @@ build:
           cp -R * /usr/local/apache2/htdocs/demo/
           rm -rf WebContent
           echo "Second :)"
+          chown -R www-data:www-data /usr/local/apache2/htdocs/demo
+          chmod -R ugo+rx /usr/local/apache2/htdocs/demo
           ls -l
           ls -l /usr/local/apache2/htdocs/demo
           ls -l /usr/local/apache2/conf
-          chown -R www-data:www-data /usr/local/apache2/htdocs/demo
-          chmod -R ugo+rx /usr/local/apache2/htdocs/demo
           echo "Done :)"
 #
 #
