@@ -73,6 +73,9 @@ release-build:
         name: build release code
         code: |
           ls -l
+          ls -l /usr/local/apache2/htdocs/demo
+          ls -l /usr/local/apache2/conf
+          echo "Done :)"
 #
 #
 #
@@ -81,9 +84,11 @@ push-release:
     - script:
         name: push release
         code: |
-            ls -l
-            echo "in release step"
-
+          ls -l
+          ls -l /usr/local/apache2/htdocs/demo
+          ls -l /usr/local/apache2/conf
+          echo "Done :)"
+          echo "in release step"
     # push container as-is
     - internal/docker-push:
         disable-sync: true
