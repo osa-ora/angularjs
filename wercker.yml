@@ -45,8 +45,11 @@ build:
           ls -l
           mkdir -p /usr/local/apache2/htdocs/demo/
           mkdir -p /usr/local/apache2/conf/
-          cp * /usr/local/apache2/htdocs/demo/
-          cp ./httpd.conf /usr/local/apache2/conf/httpd.conf
+          cp -R ./httpd.conf /usr/local/apache2/conf/httpd.conf
+          rm ./httpd.conf
+          echo "First :)"
+          cp -R * /usr/local/apache2/htdocs/demo/
+          echo "Second :)"
           chown -R www-data:www-data /usr/local/apache2/htdocs/demo
           chmod -R ugo+rx /usr/local/apache2/htdocs/demo
           echo "Done :)"
