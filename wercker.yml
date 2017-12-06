@@ -84,6 +84,7 @@ push-release:
         code: |
           ls -l
           echo "Done :)"
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
           echo "in release step"
     # push container as-is
     - internal/docker-push:
