@@ -43,19 +43,19 @@ build:
         code: |
           echo "Start building the app"
           ls -l
-          mkdir -p ./usr/local/apache2/htdocs/demo/
-          mkdir -p ./usr/local/apache2/conf/
-          cp -R ./httpd.conf ./usr/local/apache2/conf/httpd.conf
+          mkdir -p $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo/
+          mkdir -p $WERCKER_OUTPUT_DIR/usr/local/apache2/conf/
+          cp -R ./httpd.conf $WERCKER_OUTPUT_DIR/usr/local/apache2/conf/httpd.conf
           rm ./httpd.conf
           echo "First :)"
-          cp -R WebContent/* ./usr/local/apache2/htdocs/demo/
+          cp -R WebContent/* $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo/
           rm -rf WebContent
           echo "Second :)"
-          chown -R www-data:www-data ./usr/local/apache2/htdocs/demo
-          chmod -R ugo+rx ./usr/local/apache2/htdocs/demo
+          chown -R www-data:www-data  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
+          chmod -R ugo+rx  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
           ls -l
-          ls -l ./usr/local/apache2/htdocs/demo
-          ls -l ./usr/local/apache2/conf
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
 #
 #
@@ -73,8 +73,8 @@ release-build:
         name: build release code
         code: |
           ls -l
-          ls -l ./usr/local/apache2/htdocs/demo
-          ls -l ./usr/local/apache2/conf
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
 #
 #
@@ -85,8 +85,8 @@ push-release:
         name: push release
         code: |
           ls -l
-          ls -l ./usr/local/apache2/htdocs/demo
-          ls -l ./usr/local/apache2/conf
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
+          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
           echo "in release step"
     # push container as-is
