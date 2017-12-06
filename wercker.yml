@@ -72,9 +72,7 @@ release-build:
     - script:
         name: build release code
         code: |
-          ls -l
-          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
-          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
+          ls -l $WERCKER_OUTPUT_DIR
           echo "Done :)"
 #
 #
@@ -85,8 +83,6 @@ push-release:
         name: push release
         code: |
           ls -l
-          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
-          ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
           echo "in release step"
     # push container as-is
