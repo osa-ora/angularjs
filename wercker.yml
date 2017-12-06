@@ -82,6 +82,29 @@ release-build:
         branch: master
 #
 #
+push-to-test:
+  steps:
+    - script:
+        name: push release
+        code: |
+          ls -l
+          echo "Done :)"
+          ls -l  $WERCKER_STEP_ROOT
+          cat $WERCKER_STEP_ROOT/run.sh
+          echo "in release step"
+    # push container as-is
+    - internal/docker-push:
+        disable-sync: true
+        repository: osaora/angular_js
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        tag: "FirstOne"
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USER
+        branch: master
 push-release:
   steps:
     - script:
