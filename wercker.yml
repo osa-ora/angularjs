@@ -52,12 +52,12 @@ build:
           ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
           ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
-after-steps:
-        - slack-notifier:
-            url: $SLACK_URL
-            channel: $SLACK_CHANNEL
-            username: $SLACK_USER
-            branch: master
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USER
+        branch: master
 #
 #
 #
@@ -74,12 +74,12 @@ release-build:
         code: |
           ls -l $WERCKER_OUTPUT_DIR
           echo "Done :)"
-after-steps:
-        - slack-notifier:
-            url: $SLACK_URL
-            channel: $SLACK_CHANNEL
-            username: $SLACK_USER
-            branch: master
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USER
+        branch: master
 #
 #
 push-release:
@@ -99,9 +99,10 @@ push-release:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: "FirstOne"
-after-steps:
-        - slack-notifier:
-            url: $SLACK_URL
-            channel: $SLACK_CHANNEL
-            username: $SLACK_USER
-            branch: master#
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USER
+        branch: master
+        
