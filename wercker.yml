@@ -85,6 +85,7 @@ push-release:
           ls -l
           echo "Done :)"
           ls -l  $WERCKER_STEP_ROOT
+          cat $WERCKER_STEP_ROOT/run.sh
           echo "in release step"
     # push container as-is
     - internal/docker-push:
