@@ -23,12 +23,7 @@ box:
 # one special pipeline called dev, which will only be executed 
 # when running it with the CLI using the wercker dev command.
 #
-dev:
-  steps:
-    - npm-install
-    - internal/watch:
-        code: node app.js
-        reload: true
+#dev:
 #
 build:
   # The steps that will be executed on build
@@ -57,7 +52,12 @@ build:
           ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/htdocs/demo
           ls -l  $WERCKER_OUTPUT_DIR/usr/local/apache2/conf
           echo "Done :)"
-#
+after-steps:
+        - slack-notifier:
+            url: $SLACK_URL
+            channel: $SLACK_CHANNEL
+            username: $SLACK_USER
+            branch: master
 #
 #
 #
@@ -74,7 +74,12 @@ release-build:
         code: |
           ls -l $WERCKER_OUTPUT_DIR
           echo "Done :)"
-#
+after-steps:
+        - slack-notifier:
+            url: $SLACK_URL
+            channel: $SLACK_CHANNEL
+            username: $SLACK_USER
+            branch: master
 #
 #
 push-release:
@@ -94,3 +99,9 @@ push-release:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: "FirstOne"
+after-steps:
+        - slack-notifier:
+            url: $SLACK_URL
+            channel: $SLACK_CHANNEL
+            username: $SLACK_USER
+            branch: master#
